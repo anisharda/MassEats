@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styleReg.css')}}">
+    
+</head>
+
+<body>
+    <div class="container">
+      <div class="title">Login</div>
+      <div class="content">
+        <form action="{{ url_for('login')}}" method = 'post'>
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Username/Email</span>
+              <input type="text" name = "username" placeholder="Enter your username" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="password" name = "password" placeholder="Enter your password" required>
+            </div>
+          </div>
+          
+          <div class="button">
+            <!-- <div class="button" onclick="window.location.href='/templates/feed.html';"> -->
+            <!-- <form action="/templates/feed.html"> -->
+            <input type="submit" value="Log In">
+            <!-- </form> -->
+          </div>
+          <div class="login"><a href="{{ url_for('register')}}" class="a">Don't have an account? <u>Sign Up</u></a></div>
+          <div class="back"><a href="{{ url_for('welcome')}}" class="a">Back</a>
+            
+          </div>
+        
+        
+          
+        </form>
+      </div>
+    </div>
+  
+  </body>
+  
+
+
+</html>

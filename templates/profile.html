@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styleProf.css')}}">
+    
+</head>
+
+<body>
+    <div class="container">
+      <div class="title">Your Profile</div>
+      <div class="content">
+        <form action="{{ url_for('profile')}}" method = 'post'>
+          <div class="user-details">
+
+            <div class="input-box">
+              <span class="details">Name</span>
+              <input type="text" placeholder="Enter your name" required>
+            </div>
+
+            <div class="drop-down">
+                <span class="details">Pronouns</span>
+                <select name="pronouns">
+                    <option>She/her</option>
+                    <option>They/them</option>
+                    <option>He/him</option>
+                    <option>Other/Ask!</option>
+                </select>
+            </div>
+
+            <div class="drop-down">                
+                <span class="details">Year</span>
+                <select name="year">
+                <option>Freshman</option>
+                <option>Sophomore</option>
+                <option>Junior</option>
+                <option>Senior</option>
+                <option>Grad Student</option>
+              </select>
+            </div>
+
+            <div class="drop-down">
+                <span class="details">Major</span>
+                <select name="major">
+                <option>College of Information and Computer Sciences</option>
+                <option>College of Natural Sciences</option>
+                <option>College of Humanities and Fine Arts</option>
+                <option>College of Engineering</option>
+                <option>College of Education</option>
+                <option>College of Nursing</option>
+                <option>College of Social and Behavioral Sciences</option>
+                <option>Stockbridge School of Agriculture</option>
+                <option>Isenberg School of Management</option>
+                <option>School of Public Health and Health Sciences</option>
+              </select>
+            </div>
+
+            <div class="drop-down">
+                <span class="details">Favorite Dining Hall</span>
+                <select name="dininghall">
+                <option>Berkshire</option>
+                <option>Franklin</option>
+                <option>Hampshire</option>
+                <option>Worcester</option>
+                <option>Blue Wall</option>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Interests</span>
+                <input type="text" placeholder="Enter your interests" required>
+              </div>
+          </div>
+          
+            <form action="{{ url_for('feed')}}">
+                <div class="button" onclick="window.location".href='/templates/profile.html';">
+                    <input type="submit" value="Save" />
+                </div>
+            </form>
+          
+          <!-- <div class="login"><a href="/templates/login.html" class="a">Already Have an account? <u>Login</u></a></div> -->
+          <div class="back"><a href="{{ url_for('feed')}}" class="a">Back</a></div>
+          
+        </form>
+      </div>
+    </div>
+  
+  </body>
+
+</html>

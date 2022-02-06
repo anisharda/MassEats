@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <link type="text/css" rel ="stylesheet" href="/static/css/styleFeed.css";/>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styleFeed.css')}}" /> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styleFeed.css')}}" /> -->
+  </head>
+  <body>
+    
+     <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a>Filter by schedule</a>
+        <br>
+
+        {%if scenario == 'Time not submitted'%}
+          <form action="{{ url_for('submitTime')}}" method = 'post'>
+          <select name="time" id="">Select a time: 
+            <option>7:00am-8:00am</option>
+            <option>8:00am-9:00am</option>
+            <option>9:00am-10:00am</option>
+            <option>10:00am-11:00am</option>
+            <option>11:00am-12:00pm</option>
+            <option>12:00pm-1:00pm</option>
+            <option>1:00pm-2:00pm</option>
+            <option>2:00pm-3:00pm</option>
+            <option>3:00pm-4:00pm</option>
+            <option>4:00pm-5:00pm</option>
+            <option>5:00pm-6:00pm</option>
+            <option>6:00pm-7:00pm</option>
+            <option>7:00pm-8:00pm</option>
+            <option>8:00pm-9:00pm</option>
+            <option>9:00pm-10:00pm</option>
+          </select>
+          <button type="submit" >Submit</button>
+          </form>
+          {%endif%}
+          <div class="contact">
+          {%if scenario == 'Time is submitted'%}
+          <form action="{{ url_for('changeTime')}}">
+            <button type="submit" >Change time</button>
+          </form>
+          {%for i in range(0, sameTime|length)%}
+            <p>{{sameTime[i].name}}</p> 
+            <p>{{sameTime[i].email}}</p>
+            <p>{{sameTime[i].phone}}</p>
+            {%if pref != None%}
+              <p>{{pref[i].pronouns}}</p>
+              <p>{{pref[i].year}}</p>
+              <p>{{pref[i].major}}</p>
+              <p>{{pref[i].dininghall}}</p>
+              
+            {%endif%}
+            <br>
+          {%endfor%}
+          {%endif%}
+        </div>
+          
+    </div> 
+      
+      <!-- Use any element to open the sidenav -->
+    <main>
+        <div id ="main">
+        <div class="big-wrapper">
+        <img src="{{ url_for('static', filename='img/food.png')}}" alt="" class="shape" />
+
+        <header>
+          <div class="container">
+            <div class="-header">
+                
+                <div class="hammy"><span onclick="openNav()"> <img src="{{ url_for('static', filename='img/hamburger.png')}}" alt="hammy" /></span></div><div class="logo">
+
+                  <h2><a href="{{ url_for('welcome')}}" class="button">MassEats</a></h2>
+                <!-- <h2><a href="{{ url_for('welcome')}}" class="button">MassEats</a></h2> -->
+                <img src="{{ url_for('static', filename='img/logo.png')}}" alt="Logo" />
+                
+                </div>
+                <!--<img src="./img/logo.png" alt="Logo" />-->
+                
+              </div>
+  
+              <!-- NEED TO CREATE FOR SCHEDULE -->
+
+
+            <div class="links">
+              <ul>
+                <!-- <li><a href="{{ url_for('static', filename='templates/schedule.html')}}" class="buttonCorner">Schedule</a></li> -->
+                <li><a href="{{ url_for('profile')}}" class="buttonCorner">My Profile</a></li>
+                <li><a href="{{ url_for('logout')}}" class="buttonCorner">Log Out</a></li>
+              </ul>
+            </div>
+
+            <div class="overlay"></div>
+
+            <!--<div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>-->
+          </div>
+        </header>
+        
+        <body>
+          
+
+          
+         
+
+
+            <div class="row">
+                <!-- <div class="column left" style="background-color:#f8bf90;">
+                  <h2>Column 1</h2>
+                  <p>Some text..</p>
+                </div> -->
+                <div class="column right" style="background-color:#ffddc7;" >
+                    
+                      
+                  
+
+                  <p></p>
+                    <div class="cards">
+                        <div class="title"> Fatimah</div><div class="pronoun"><i>she/her</i></div>
+                        <div class="user-details">Freshman<br>Engineering Major</div>
+                        <p><br>"I enjoy walking with my dog in the sunset"</p>
+                        <div class="btton"><a href="#" class="btton">get contact</a></div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="title"> Tom</div><div class="pronoun"><i>they/them</i></div>
+                        <div class="user-details">Senior<br>Nursing Major</div>
+                        <p><br>"Never come at me with pineapple on pizza"</p>
+                        <div class="btton"><a href="#" class="btton">get contact</a></div>
+                    </div>
+
+
+                  
+                </div>
+            </div>
+        </body>
+    </div>
+    </div>
+        
+    </main>
+
+    <!-- JavaScript Files -->
+
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="./app.js"></script>
+  
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+        </script>
+</body>
+</html>

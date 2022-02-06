@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styleReg.css')}}">
+    
+</head>
+
+<body>
+    <div class="container">
+      <div class="title">Preferences</div>
+      <div class="content">
+          <!-- change to add data -->
+        <form action="{{ url_for('preferences')}}" method = 'post'>
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Major</span>
+              <input type="text" name = "major" placeholder="Enter your major" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Favorite Dining Hall</span>
+              <input type="dininghall" name = "dininghall" placeholder="Enter your favorite dining hall" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Fun fact about yourself</span>
+                <input type="bio" name = "bio" placeholder="Enter a brief description" required>
+              </div>
+          </div>
+          
+          <div class="button">
+            <!-- <div class="button" onclick="window.location.href='/templates/feed.html';"> -->
+            <!-- <form action="/templates/feed.html"> -->
+            <input type="submit" value="Save">
+            <!-- </form> -->
+          </div>
+            
+          </div>
+        
+        
+          
+        </form>
+       </div>
+       </div>
+    </div>
+  
+</body>
+  
+
+
+</html>
